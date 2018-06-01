@@ -1,17 +1,17 @@
-from winreg import *
+from Winreg import *
 
 ENUM_USB = 'SYSTEM\CurrentControlSet\Enum\USB'
 ENUM_RUN = 'Software\Microsoft\Windows\CurrentVersion\Run'
-BASELINE_RUN = r'C:\Users\Owner\PycharmProjects\DeltaX\reg_run'
-BASELINE_USB = r'C:\Users\Owner\PycharmProjects\DeltaX\reg_usb'
+BASELINE_RUN = r'C:\Users\Owner\PycharmProjects\DeltaX\Reg_Run.txt'
+BASELINE_USB = r'C:\Users\Owner\PycharmProjects\DeltaX\Reg_USB.txt'
 
 def main():
     lst = registryKey(ENUM_USB)[0]
  #   print lst
 #    printListDevices()
-    list_VID(lst)
- #   menu()
-    baseline_run(BASELINE_RUN, ENUM_RUN)
+ #   list_VID(lst)
+    menu()
+ #   baseline_run(BASELINE_RUN, ENUM_RUN)
   #  compare(BASELINE_RUN, current_lst, ENUM_RUN)
  #   baseline_usb(BASELINE_USB, ENUM_USB)
 
@@ -42,7 +42,7 @@ def menu():
             key = ENUM_RUN
             current_lst, time = registryValue(key)
     # baseline
-        lst_baselines = ['reg_usb.txt', 'reg_run.txt']
+        lst_baselines = ['Reg_USB.txt', 'Reg_Run.txt']
         for i in range(len(lst_baselines)):
             print i+1, ' -> ', lst_baselines[i]
         baseline = raw_input('Please select baseline: ')
