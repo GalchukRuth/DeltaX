@@ -10,10 +10,33 @@ def main():
  #   print lst
 #    printListDevices()
  #   list_VID(lst)
+
     menu()
  #   baseline_run(BASELINE_RUN, ENUM_RUN)
   #  compare(BASELINE_RUN, current_lst, ENUM_RUN)
  #   baseline_usb(BASELINE_USB, ENUM_USB)
+ 
+def quickScan():
+    key = ENUM_RUN
+    current_lst = []
+    current_lst, num = registryValue(key)
+    baseline = BASELINE_RUN
+    exist_list, new_lst, delta_time = compare(baseline, current_lst, key)
+    for i in exist_list:
+        print '\texist -> ', i
+    for i in new_lst:
+        print '\tnew -> ', i
+    print 'Time changed -> ', delta_time
+    baseline_lst = set((readFromFile(baseline).split('\n')[:-1]))
+    if (set(current_lst).difference(baseline_lst)):
+        action = raw_input('Do you want append to baseline new value? [y / n] ')
+        if action == 'y':
+            update(baseline, new_lst)
+            print '\n', baseline, '-> updated'
+        else:
+            pass
+    else:
+        print 'No entries'
 
 def menu():
     lst_options = ['Analyze Connected Devices','Run Key Delta']
