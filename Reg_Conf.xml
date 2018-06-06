@@ -1,0 +1,15 @@
+<Sysmon schemaversion="4">
+
+	<HashAlgorithms>MD5,SHA256</HashAlgorithms>
+	<EventFiltering>
+	
+		<RegistryEvent onmatch="include">
+			<TargetObject condition="contains">Windows\CurrentVersion\Run\</TargetObject>
+		</RegistryEvent>
+		<ProcessCreate onmatch="include">
+			<Image condition="contains">regedit.exe</Image>
+		</ProcessCreate>
+		
+	</EventFiltering>
+	
+</Sysmon>

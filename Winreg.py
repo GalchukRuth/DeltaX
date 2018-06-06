@@ -4,6 +4,7 @@ from datetime import *
 
 ENUM_USB = 'SYSTEM\CurrentControlSet\Enum\USB'
 ENUM_RUN = 'Software\Microsoft\Windows\CurrentVersion\Run'
+ENUM_RUN_ONCE = 'Software\Microsoft\Windows\CurrentVersion\RunOnce'
 
 # Extracting devices from key by handle
 def registryKey(key):
@@ -18,7 +19,7 @@ def registryKey(key):
         pass
     return lst_devices, num_devices
 
-#Extracting value from key by handle
+# Extracting value from key by handle
 def registryValue(key):
     handle = OpenKey(HKEY_LOCAL_MACHINE, key)
     lst = []

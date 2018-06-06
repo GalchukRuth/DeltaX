@@ -1,2 +1,3 @@
-C:\Users\Owner\PycharmProjects\DeltaX\Reg_Run.txt'
-C:\Users\Owner\PycharmProjects\DeltaX\Reg_USB.txt'
+C:\Users\Owner\PycharmProjects\DeltaX\Reg_USB.txt
+C:\Users\Owner\PycharmProjects\DeltaX\Reg_Run.txt
+C:\Users\Owner\PycharmProjects\DeltaX\Reg_RunOnce.txt
